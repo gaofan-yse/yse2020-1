@@ -86,12 +86,12 @@ if (/* ②の処理を書く */){
 
 							echo "<tr id='book'>";
 							echo "<td id='check'><input type='checkbox' name='books[]'value="./* ⑫IDを設定する */."></td>";
-							echo "<td id='id'>/* ⑬IDを表示する */</td>";
-							echo "<td id='title'>/* ⑭titleを表示する */</td>";
-							echo "<td id='author'>/* ⑮authorを表示する */</td>";
-							echo "<td id='date'>/* ⑯salesDateを表示する */</td>";
-							echo "<td id='price'>/* ⑰priceを表示する */</td>";
-							echo "<td id='stock'>/* ⑱stockを表示する */</td>";
+							echo "<td id='id'>$id</td>";
+							echo "<td id='title'>$title</td>";
+							echo "<td id='author'>$author</td>";
+							echo "<td id='date'>$data</td>";
+							echo "<td id='price'>$price</td>";
+							echo "<td id='stock'>$stock</td>";
 
 							echo "</tr>";
 						}
