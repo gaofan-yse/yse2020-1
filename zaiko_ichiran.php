@@ -13,16 +13,31 @@
 //①セッションを開始する
 
 //②SESSIONの「login」フラグがfalseか判定する。「login」フラグがfalseの場合はif文の中に入る。
-if (/* ②の処理を書く */){
-	//③SESSIONの「error2」に「ログインしてください」と設定する。
-	//④ログイン画面へ遷移する。
-}
+// if (/* ②の処理を書く */){
+// 	//③SESSIONの「error2」に「ログインしてください」と設定する。
+// 	//④ログイン画面へ遷移する。
+// }
 
 //⑤データベースへ接続し、接続情報を変数に保存する
-
 //⑥データベースで使用する文字コードを「UTF8」にする
+$db_name = 'zaiko2020_yse';
+$host = 'localhost';
+$user_name = 'zaiko2020_yse';
+$password ='2020zaiko';
+$dsn = "mysql:dbname={$db_name};host={$host}; charset = utf8 ";
+
+try {
+		$pdo = new PDO($dsn, $user_name, $password);
+	
+} catch (PDOException $e) {
+	
+		exit;
+}
+
 
 //⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
+	$sql = 'SELECT * FROM books';
+	$pdo->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -44,10 +59,10 @@ if (/* ②の処理を書く */){
 				 * ⑧SESSIONの「success」にメッセージが設定されているかを判定する。
 				 * 設定されていた場合はif文の中に入る。
 				 */ 
-				if(/* ⑧の処理を書く */){
-					//⑨SESSIONの「success」の中身を表示する。
-				}
-				?>
+				// if(/* ⑧の処理を書く */){
+				// 	//⑨SESSIONの「success」の中身を表示する。
+				// }
+				// ?>
 			</div>
 			
 			<!-- 左メニュー -->
@@ -80,22 +95,21 @@ if (/* ②の処理を書く */){
 					</thead>
 					<tbody>
 						<?php
-						//⑩SQLの実行結果の変数から1レコードのデータを取り出す。レコードがない場合はループを終了する。
-						while(/* ⑩の処理を書く */){
-							//⑪extract変数を使用し、1レコードのデータを渡す。
+						// //⑩SQLの実行結果の変数から1レコードのデータを取り出す。レコードがない場合はループを終了する。
+						// while($extract = $query->fetch(PDO::FETCH_ASSOC)){
+						// 	//⑪extract変数を使用し、1レコードのデータを渡す。
 
-							echo "<tr id='book'>";
-							echo "<td id='check'><input type='checkbox' name='books[]'value="./* ⑫IDを設定する
-						 */."></td>";
-							echo "<td id='id'>$id</td>";
-							echo "<td id='title'>$title</td>";
-							echo "<td id='author'>$author</td>";
-							echo "<td id='date'>$data</td>";
-							echo "<td id='price'>$price</td>";
-							echo "<td id='stock'>$stock</td>";
+						// 	echo "<tr id='book'>";
+						// 	echo "<td id='check'><input type='checkbox' name='books[]'value='{$extract['id']}'></td>";
+						// 	echo "<td >{$extract['id']}</td>".PHP_EOL;
+						// 	echo "<td >{$extract['title']}</td>".PHP_EOL;
+						// 	echo "<td >{$extract['author']}</td>".PHP_EOL;
+						// 	echo "<td >{$extract['salesDate']}</td>".PHP_EOL;
+						// 	echo "<td >{$extract['price']}</td>".PHP_EOL;
+						// 	echo "<td >{$extract['stock']}</td>".PHP_EOL;
 
-							echo "</tr>";
-						}
+						// 	echo "</tr>";
+						// }
 						?>
 					</tbody>
 				</table>
