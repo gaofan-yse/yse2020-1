@@ -37,7 +37,7 @@ try {
 
 //⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
 	$sql = 'SELECT * FROM books';
-	$pdo->query($sql);
+	$query =$pdo->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -95,21 +95,21 @@ try {
 					</thead>
 					<tbody>
 						<?php
-						// //⑩SQLの実行結果の変数から1レコードのデータを取り出す。レコードがない場合はループを終了する。
-						// while($extract = $query->fetch(PDO::FETCH_ASSOC)){
-						// 	//⑪extract変数を使用し、1レコードのデータを渡す。
+						//⑩SQLの実行結果の変数から1レコードのデータを取り出す。レコードがない場合はループを終了する。
+						while($extract = $query->fetch(PDO::FETCH_ASSOC)){
+							//⑪extract変数を使用し、1レコードのデータを渡す。
 
-						// 	echo "<tr id='book'>";
-						// 	echo "<td id='check'><input type='checkbox' name='books[]'value='{$extract['id']}'></td>";
-						// 	echo "<td >{$extract['id']}</td>".PHP_EOL;
-						// 	echo "<td >{$extract['title']}</td>".PHP_EOL;
-						// 	echo "<td >{$extract['author']}</td>".PHP_EOL;
-						// 	echo "<td >{$extract['salesDate']}</td>".PHP_EOL;
-						// 	echo "<td >{$extract['price']}</td>".PHP_EOL;
-						// 	echo "<td >{$extract['stock']}</td>".PHP_EOL;
+							echo "<tr id='book'>";
+							echo "<td id='check'><input type='checkbox' name='books[]'value='{$extract['id']}'></td>";
+							echo "<td >{$extract['id']}</td>".PHP_EOL;
+							echo "<td >{$extract['title']}</td>".PHP_EOL;
+							echo "<td >{$extract['author']}</td>".PHP_EOL;
+							echo "<td >{$extract['salesDate']}</td>".PHP_EOL;
+							echo "<td >{$extract['price']}</td>".PHP_EOL;
+							echo "<td >{$extract['stock']}</td>".PHP_EOL;
 
-						// 	echo "</tr>";
-						// }
+							echo "</tr>";
+						}
 						?>
 					</tbody>
 				</table>
